@@ -1,0 +1,23 @@
+name: Deploy PROD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Show Files
+        run: |
+          echo "Deploying to PROD"
+          find . -type f
+
+      - name: Display SQL Files
+        run: |
+          cat schemas/*.sql
