@@ -1,12 +1,12 @@
-name: Deploy DEV
+name: Deploy TEST
 
 on:
   push:
     branches:
-      - develop
+      - test
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,5 +15,6 @@ jobs:
 
       - name: Display SQL File
         run: |
+          echo "Deploying to TEST"
           ls -R
           cat schemas/employee.sql
