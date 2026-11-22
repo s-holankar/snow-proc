@@ -6,15 +6,18 @@ on:
       - test
 
 jobs:
-  deploy:
+  deploy-test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Display SQL File
+      - name: Show Files
         run: |
           echo "Deploying to TEST"
-          ls -R
-          cat schemas/employee.sql
+          find . -type f
+
+      - name: Display SQL Files
+        run: |
+          cat schemas/*.sql
