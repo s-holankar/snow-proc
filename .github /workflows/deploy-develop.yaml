@@ -1,12 +1,12 @@
-name: Deploy TEST
+name: Deploy DEV
 
 on:
   push:
     branches:
-      - develop
+      - dev
 
 jobs:
-  deploy-test:
+  deploy-dev:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,7 +15,7 @@ jobs:
 
       - name: Show Files
         run: |
-          echo "Deploying to TEST"
+          echo "Deploying to DEV"
           find . -type f
 
       - name: Display SQL Files
