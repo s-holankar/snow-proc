@@ -1,20 +1,23 @@
-name: Deploy TEST
+name: Deploy DEV
 
 on:
   push:
     branches:
-      - test
+      - dev
 
 jobs:
-  deploy:
+  deploy-dev:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Display SQL File
+      - name: Show Files
         run: |
-          echo "Deploying to TEST"
-          ls -R
-          cat schemas/employee.sql
+          echo "Deploying to DEV"
+          find . -type f
+
+      - name: Display SQL Files
+        run: |
+          cat schemas/*.sql
